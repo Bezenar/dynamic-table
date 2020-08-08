@@ -123,8 +123,8 @@ export default {
 
 <style lang="scss">
 .table {
-  height: 100vh;
   background-color: lightgrey;
+  overflow: scroll;
   &__column-result,
   &__total-result {
     border: 1px solid black;
