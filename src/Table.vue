@@ -30,7 +30,7 @@
 </template>
 
 <script>
-/**Import store and Components */
+/**Import store and Components. */
 import { store } from "./store/index";
 import Row from "./components/mainComponents/Row.vue";
 
@@ -39,19 +39,20 @@ export default {
   components: { Row },
   data() {
     return {
-      //Take datas from store
-      rows: store.state.rows
+      rows: store.state.rows //Take datas from store
     };
   },
   computed: {
     columnsCount() {
-      /**Take function from store to component */
+      /**Take columns amount from store. */
       return store.columnsCount();
     },
+    /** Function to count total result in table cells. */
     totalResult() {
-      /** Function to count total result in table cells */
       let result = 0;
+      /** Loop through each row. */
       this.rows.forEach(row => {
+        /** Loop through each cell in row. */
         row.cells.forEach(cell => {
           result += parseInt(cell.data);
         });
@@ -60,13 +61,17 @@ export default {
     }
   },
   methods: {
+    /**
+     * Function to column sum.
+     */
     columnsSum(arg) {
       /**
-       * @description
-       * Use methods because i need to give arguments from the v-for loop to function.
+       * Function argument "arg" give a number of column.
        */
       let result = 0;
+      /** Loop through each row. */
       this.rows.forEach(row => {
+        /** Loop through each cell in row to find cell in first column. */
         row.cells.find(cell => {
           if (cell.id === arg) {
             result += parseInt(cell.data);
@@ -75,14 +80,16 @@ export default {
       });
       return result;
     },
+    /** Function to add row to table. */
     addRow() {
-      /** Function to add row to table */
+      /** Create id for row. */
       const id = this.rows[this.rows.length - 1].id + 1;
       const row = {
         id: id,
         cells: []
       };
       let i = 0;
+      /** Pushing cells to row to create columns for table horizontal lenght. */
       while (i < this.columnsCount) {
         const cell = {
           id: row.cells.length + 1,
@@ -94,8 +101,13 @@ export default {
       }
       this.rows.push(row);
     },
+    /** Function to add column to table. */
     addColumn() {
-      /** function to add column to table */
+      /** 
+       * Loop through each row.
+       * Pushing cells to each row to make table vertical lenght to be indetical
+       * in each column.
+       */
       this.rows.forEach(row => {
         const cell = {
           id: row.cells.length + 1,

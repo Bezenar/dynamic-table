@@ -1,6 +1,6 @@
 /**
  * @description
- * Create file for data saving. Like Vuex, but smaller abillity then at Vuex.
+ * Create file for get/set data. Like Vuex, but with smaller then at Vuex.
  */
 export const store = {
   state: {
@@ -38,7 +38,6 @@ export const store = {
     ]
   },
   /**
-   * @description
    * Function to count how much columns are in the table.
    */
   columnsCount() {
@@ -50,7 +49,14 @@ export const store = {
     }
     return columns;
   },
+  /**
+   * Function created in store for it reusing at components
+   */
   changeNumber(rowId, cellId) {
+    /**
+     * rowId - argument to now at what row need to take cell.
+     * cellId - argument to now cell ID to change data.
+     */
     const row = store.state.rows.find((el) => el.id === rowId);
     const cell = row.cells.find((el) => el.id === cellId);
     return cell;

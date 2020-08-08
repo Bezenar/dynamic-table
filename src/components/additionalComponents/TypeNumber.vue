@@ -18,7 +18,9 @@ export default {
   },
   methods: {
     changeNumber() {
+      /** rowId - row ID, when need to found cell. */
       const rowId = this.$props.row.id;
+      /** cellId - cell ID, where need to change data. */
       const cellId = this.$props.cell.id;
       return (store.changeNumber(rowId, cellId).data = this.number);
     }
@@ -33,8 +35,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/** import external styles
-*   it's not nesessecary to use scoped styles in this APP
+/** 
+  import external styles.
+  It's not nesessecary to use scoped styles in this APP
 */
 @import "./../../assets/styles.scss";
 </style>

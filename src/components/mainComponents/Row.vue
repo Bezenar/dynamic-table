@@ -11,7 +11,7 @@
 </template>
 
 <script>
-/** Import components */
+/** Import component.*/
 import Cell from "./Cell.vue";
 
 export default {
@@ -20,10 +20,12 @@ export default {
   /** props for data receivig from children to parent components */
   props: ["row", "cell"],
   computed: {
+    /** Make Sum in each row in table */
     rowResult() {
-      /** Make Sum in each row in table */
+      /** cells - All cells in one row */
       const cells = this.$props.row.cells;
       let result = 0;
+      /** Loop through each cell in row. */
       cells.forEach(el => {
         result += parseInt(el.data);
       });
@@ -34,8 +36,11 @@ export default {
 </script>
 
 <style lang="scss">
-/** Import some small styles. Also, is ability to create vue config file and
- register there our external styles */
+/** 
+  Import some small styles from external file. 
+  Also, is ability to create vue config file and
+  register there our external styles 
+*/
 @import "./../../assets/styles.scss";
 .odd {
   background-color: darkslategray;

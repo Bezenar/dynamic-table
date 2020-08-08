@@ -25,7 +25,7 @@ export default {
     };
   },
   methods: {
-    /** function to change type data, to create dynamic components */
+    /** Functions to change type in component data, to create dynamic components */
     toStringCell() {
       this.type = "TypeString";
     },
