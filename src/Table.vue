@@ -124,6 +124,8 @@ export default {
 <style lang="scss">
 .table {
   background-color: lightgrey;
+  height: 100%;
+  max-width: 100vw;
   overflow: scroll;
   &__column-result,
   &__total-result {
@@ -134,7 +136,11 @@ export default {
     border-collapse: collapse;
     text-align: center;
     line-height: 100%;
+    margin: 20px auto 0;
     vertical-align: middle;
+  }
+  &__content-wrapper {
+    height: 100%;
   }
   &__row {
     .odd {
@@ -173,12 +179,6 @@ export default {
     &:hover {
       transform: scale(1.1);
     }
-  }
-  &__content-wrapper {
-    display: flex;
-    justify-content: center;
-    overflow: scroll;
-    height: 100%;
   }
 }
 </style>
