@@ -103,7 +103,7 @@ export default {
     },
     /** Function to add column to table. */
     addColumn() {
-      /** 
+      /**
        * Loop through each row.
        * Pushing cells to each row to make table vertical lenght to be indetical
        * in each column.
@@ -177,6 +177,7 @@ export default {
   &__content-wrapper {
     display: flex;
     justify-content: center;
+    overflow: scroll;
     height: 100%;
   }
 }
