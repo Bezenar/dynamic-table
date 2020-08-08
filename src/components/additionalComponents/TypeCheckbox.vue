@@ -1,6 +1,6 @@
 <template>
   <div class="type-checkbox">
-    <input type="checkbox" v-model="boolean" />
+    <input type="checkbox" v-model="boolean" @change="changeNumber()" />
   </div>
 </template>
 
@@ -16,12 +16,11 @@ export default {
       boolean: ""
     };
   },
-  computed: {
-    value() {
-      /** give data back to parent with store help */
-      let row = store.state.rows.find(el => el.id === this.$props.row.id);
-      let cell = row.cells.find(el => el.id === this.$props.cell.id);
-      return (cell.data = this.boolean ? 1 : 0);
+  methods: {
+    changeNumber() {
+      const rowId = this.$props.row.id;
+      const cellId = this.$props.cell.id;
+      return (store.changeNumber(rowId, cellId).data = this.boolean ? 1 : 0);
     }
   },
   created() {

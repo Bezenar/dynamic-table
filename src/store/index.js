@@ -49,5 +49,10 @@ export const store = {
       }
     }
     return columns;
+  },
+  changeNumber(rowId, cellId) {
+    const row = store.state.rows.find((el) => el.id === rowId);
+    const cell = row.cells.find((el) => el.id === cellId);
+    return cell;
   }
 };

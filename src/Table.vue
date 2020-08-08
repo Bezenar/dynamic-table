@@ -136,7 +136,10 @@ export default {
   }
   &__button {
     margin: 0 10px;
+    padding: 10px 15px;
     text-align: center;
+    line-height: 100%;
+    vertical-align: middle;
     border: 1px solid blueviolet;
     outline: none;
     background: transparent;
