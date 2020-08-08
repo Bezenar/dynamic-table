@@ -126,7 +126,7 @@ export default {
   background-color: lightgrey;
   height: 100%;
   max-width: 100vw;
-  overflow: scroll;
+  overflow: hidden;
   &__column-result,
   &__total-result {
     border: 1px solid black;
@@ -141,6 +141,7 @@ export default {
   }
   &__content-wrapper {
     height: 100%;
+    overflow: scroll;
   }
   &__row {
     .odd {
